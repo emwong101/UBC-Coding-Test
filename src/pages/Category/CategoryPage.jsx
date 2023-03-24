@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
+import { InputLabel } from "@mui/material";
 import "./CategoryPage.scss";
 
 function CategoryPage({ data, setData }) {
@@ -19,6 +20,7 @@ function CategoryPage({ data, setData }) {
     "Soft Drink",
   ];
   const [category, setCategory] = useState();
+  const [drinkID, setDrinkID] = useState();
 
   const getCategory = (e) => {
     setCategory(e.target.value);
@@ -35,11 +37,17 @@ function CategoryPage({ data, setData }) {
 
   return (
     <div className="category">
-      <DropDownSelector
-        handleChange={getCategory}
-        optionArray={categoryOptions}
-        selection={category}
-      ></DropDownSelector>
+      <div className="category__inputs">
+        <InputLabel id="category__dropdown">
+          Select a category to get started
+        </InputLabel>
+        <DropDownSelector
+          handleChange={getCategory}
+          optionArray={categoryOptions}
+          selection={category}
+          id="category__dropdown"
+        ></DropDownSelector>
+      </div>
       <div className="card__container">
         {data
           ? data.map((drink) => {
@@ -48,10 +56,11 @@ function CategoryPage({ data, setData }) {
                   image={drink.strDrinkThumb}
                   name={drink.strDrink}
                   key={drink.idDrink}
+                  drinkID={drink.idDrink}
                 />
               );
             })
-          : "Welcome to the Cocktail Bar! Select a category to get started"}
+          : ""}
       </div>
     </div>
   );

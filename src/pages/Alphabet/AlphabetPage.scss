@@ -1,5 +1,10 @@
 .alphabet {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: transparent;
 }

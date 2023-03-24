@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
+import { InputLabel } from "@mui/material";
 import "./AlphabetPage.scss";
 
 function AlphabetPage({ setData, data }) {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const [selection, setSelection] = useState();
+  let ingredients = [];
 
   const getAlphabet = (e) => {
     setSelection(e.target.value);
@@ -16,13 +18,20 @@ function AlphabetPage({ setData, data }) {
       )
       .then((res) => setData(res.data.drinks));
   };
+
   return (
     <div className="alphabet">
-      <DropDownSelector
-        handleChange={getAlphabet}
-        optionArray={alphabet}
-        selection={selection}
-      ></DropDownSelector>
+      <div className="alphabet__inputs">
+        <InputLabel id="alphabet__dropdown">
+          Select a letter to get started
+        </InputLabel>
+        <DropDownSelector
+          id="alphabet__dropdown"
+          handleChange={getAlphabet}
+          optionArray={alphabet}
+          selection={selection}
+        ></DropDownSelector>
+      </div>
       <div className="card__container">
         {data
           ? data.map((drink) => {
@@ -31,10 +40,11 @@ function AlphabetPage({ setData, data }) {
                   image={drink.strDrinkThumb}
                   name={drink.strDrink}
                   key={drink.idDrink}
+                  drink={drink}
                 />
               );
             })
-          : "Select a letter to get started"}
+          : ""}
       </div>
     </div>
   );
