@@ -1,0 +1,22 @@
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &__link {
+    flex: 1 1 0;
+    padding: 0.75rem 0;
+    text-align: center;
+    text-decoration: none;
+    color: #e0e1dd;
+    font-size: 1.25rem;
+    height: 100%;
+  }
+}
+
+.active {
+  background-color: #0d1b2a;
+  border-radius: 50px;
+}

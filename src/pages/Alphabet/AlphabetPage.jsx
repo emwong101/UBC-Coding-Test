@@ -5,7 +5,7 @@ import ItemCard from "../../components/Card/ItemCard";
 import "./AlphabetPage.scss";
 
 function AlphabetPage({ setData, data }) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const [selection, setSelection] = useState();
 
   const getAlphabet = (e) => {
@@ -34,7 +34,7 @@ function AlphabetPage({ setData, data }) {
                 />
               );
             })
-          : "Select a filter to get started"}
+          : "Select a letter to get started"}
       </div>
     </div>
   );

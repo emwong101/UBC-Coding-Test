@@ -8,7 +8,6 @@ function DropDownSelector({ handleChange, optionArray, selection }) {
     <div>
       <Select
         value={selection ? selection : ""}
-        label="Select"
         onChange={handleChange}
         className="dropdown"
       >

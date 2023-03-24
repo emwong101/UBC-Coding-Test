@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
+import "./CategoryPage.scss";
 
 function CategoryPage({ data, setData }) {
   const categoryOptions = [
@@ -17,7 +18,6 @@ function CategoryPage({ data, setData }) {
     "Beer",
     "Soft Drink",
   ];
-  const categoryRequests = ["Ordinary_Drink", "Cocktail", "Shake", ""];
   const [category, setCategory] = useState();
 
   const getCategory = (e) => {
@@ -33,26 +33,26 @@ function CategoryPage({ data, setData }) {
       .then((res) => setData(res.data.drinks));
   };
 
-  console.log(data);
   return (
-    <div>
-      {" "}
+    <div className="category">
       <DropDownSelector
         handleChange={getCategory}
         optionArray={categoryOptions}
         selection={category}
       ></DropDownSelector>
-      {data
-        ? data.map((drink) => {
-            return (
-              <ItemCard
-                image={drink.strDrinkThumb}
-                name={drink.strDrink}
-                key={drink.idDrink}
-              />
-            );
-          })
-        : "Select a filter to get started"}
+      <div className="card__container">
+        {data
+          ? data.map((drink) => {
+              return (
+                <ItemCard
+                  image={drink.strDrinkThumb}
+                  name={drink.strDrink}
+                  key={drink.idDrink}
+                />
+              );
+            })
+          : "Welcome to the Cocktail Bar! Select a category to get started"}
+      </div>
     </div>
   );
 }
