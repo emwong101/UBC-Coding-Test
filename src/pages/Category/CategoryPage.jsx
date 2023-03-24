@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
-import { InputLabel } from "@mui/material";
 import "./CategoryPage.scss";
 
 function CategoryPage({ data, setData, selection, setSelection }) {
@@ -37,10 +36,7 @@ function CategoryPage({ data, setData, selection, setSelection }) {
 
   return (
     <div className="category">
-      {" "}
-      <InputLabel id="category__dropdown">
-        Select a category to get started
-      </InputLabel>
+      <label id="category__dropdown">Select a category to get started</label>
       <div className="category__inputs">
         <DropDownSelector
           handleChange={getCategory}

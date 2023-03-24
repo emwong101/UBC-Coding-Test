@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
-import { InputLabel } from "@mui/material";
 import "./AlphabetPage.scss";
 import ButtonMenu from "../../components/ButtonGroup/ButtonMenu";
 
@@ -22,9 +21,7 @@ function AlphabetPage({ setData, data, selection, setSelection }) {
 
   return (
     <div className="alphabet">
-      <InputLabel id="alphabet__dropdown">
-        Select a letter to get started
-      </InputLabel>
+      <label id="alphabet__dropdown">Select a letter to get started</label>
       <div className="alphabet__inputs">
         <DropDownSelector
           id="alphabet__dropdown"
