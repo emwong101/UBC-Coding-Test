@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
 import { InputLabel } from "@mui/material";
 import "./AlphabetPage.scss";
+import ButtonMenu from "../../components/ButtonGroup/ButtonMenu";
 
 function AlphabetPage({ setData, data, selection, setSelection }) {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const [windowSize, setWindowSize] = useState();
 
   const getAlphabet = (e) => {
     setSelection(e.target.value);
@@ -16,6 +18,18 @@ function AlphabetPage({ setData, data, selection, setSelection }) {
       )
       .then((res) => setData(res.data.drinks));
   };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <div className="alphabet">
@@ -29,6 +43,7 @@ function AlphabetPage({ setData, data, selection, setSelection }) {
           optionArray={alphabet}
           selection={selection}
         ></DropDownSelector>
+        <ButtonMenu optionArray={alphabet} />
       </div>
       <div className="card__container">
         {data

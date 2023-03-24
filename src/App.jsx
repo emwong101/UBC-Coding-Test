@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material";
 import AlphabetPage from "./pages/Alphabet/AlphabetPage";
 import CategoryPage from "./pages/Category/CategoryPage";
 import Nav from "./components/Nav/Nav";
-import MartiniIcon from "../src/assets/martini.svg";
+
 import "./App.scss";
 import Default from "./pages/Default/Default";
 
@@ -17,14 +17,6 @@ function App() {
     <div className="App">
       <StyledEngineProvider injectFirst>
         <header className="header">
-          <Link to="/" className="title">
-            <img
-              src={MartiniIcon}
-              className="title__icon"
-              alt="martini glass icon"
-            />
-            <h1 className="title__text">The Cocktail Bar</h1>{" "}
-          </Link>
           <Nav
             setData={setData}
             location={location.pathname}

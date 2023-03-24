@@ -1,0 +1,17 @@
+@use "../../styles/breakpoints" as *;
+
+.button__menu {
+  display: none;
+}
+
+@include tablet {
+  .button__menu {
+    display: none;
+  }
+}
+
+@include desktop {
+  .button__menu {
+    display: block;
+  }
+}
