@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { StyledEngineProvider } from "@mui/material";
 import AlphabetPage from "./pages/Alphabet/AlphabetPage";
 import CategoryPage from "./pages/Category/CategoryPage";
