@@ -5,6 +5,12 @@ The Cocktail Bar is a responsive single page application displaying cocktails an
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/110256938/227461429-d6eb3bff-2749-47ab-af60-c0b729e4dfdb.gif)
 
+## Performance
+Lighthouse metrics after building and previewing via Vite.
+
+![image](https://user-images.githubusercontent.com/110256938/227482199-f148f178-8866-49e7-99d6-6fc6789c2df4.png)
+
+
 ## Installation
 
 This application uses [node](https://nodejs.org/en) package manager. Please download code as a ZIP file or clone repo to begin. To install dependencies, please run the command below.
