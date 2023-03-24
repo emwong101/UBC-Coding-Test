@@ -10,6 +10,7 @@ import Default from "./pages/Default/Default";
 
 function App() {
   const [data, setData] = useState();
+  const [selection, setSelection] = useState();
   let location = useLocation();
 
   return (
@@ -24,7 +25,11 @@ function App() {
             />
             <h1 className="title__text">The Cocktail Bar</h1>{" "}
           </Link>
-          <Nav setData={setData} location={location.pathname} />
+          <Nav
+            setData={setData}
+            location={location.pathname}
+            setSelection={setSelection}
+          />
         </header>
         <div className="main">
           <Routes>
@@ -32,12 +37,24 @@ function App() {
             <Route
               path="/alphabet"
               element={
-                <AlphabetPage setData={setData} data={data}></AlphabetPage>
+                <AlphabetPage
+                  selection={selection}
+                  setSelection={setSelection}
+                  setData={setData}
+                  data={data}
+                ></AlphabetPage>
               }
             />
             <Route
               path="/category"
-              element={<CategoryPage data={data} setData={setData} />}
+              element={
+                <CategoryPage
+                  data={data}
+                  setData={setData}
+                  selection={selection}
+                  setSelection={setSelection}
+                />
+              }
             />
           </Routes>
         </div>

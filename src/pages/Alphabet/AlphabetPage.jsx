@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
 import { InputLabel } from "@mui/material";
 import "./AlphabetPage.scss";
 
-function AlphabetPage({ setData, data }) {
+function AlphabetPage({ setData, data, selection, setSelection }) {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  const [selection, setSelection] = useState();
-  let ingredients = [];
 
   const getAlphabet = (e) => {
     setSelection(e.target.value);

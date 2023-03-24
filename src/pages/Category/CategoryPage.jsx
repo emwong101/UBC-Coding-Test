@@ -5,7 +5,7 @@ import ItemCard from "../../components/Card/ItemCard";
 import { InputLabel } from "@mui/material";
 import "./CategoryPage.scss";
 
-function CategoryPage({ data, setData }) {
+function CategoryPage({ data, setData, selection, setSelection }) {
   const categoryOptions = [
     "Ordinary Drink",
     "Cocktail",
@@ -19,11 +19,9 @@ function CategoryPage({ data, setData }) {
     "Beer",
     "Soft Drink",
   ];
-  const [category, setCategory] = useState();
-  const [drinkID, setDrinkID] = useState();
 
   const getCategory = (e) => {
-    setCategory(e.target.value);
+    setSelection(e.target.value);
     const categoryRequest = e.target.value;
     axios
       .get(
@@ -44,7 +42,7 @@ function CategoryPage({ data, setData }) {
         <DropDownSelector
           handleChange={getCategory}
           optionArray={categoryOptions}
-          selection={category}
+          selection={selection}
           id="category__dropdown"
         ></DropDownSelector>
       </div>

@@ -1,5 +1,5 @@
 .card {
-  width: 8rem;
+  width: 10rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,6 @@
 
 .modal {
   width: 100%;
-  height: fit-content;
   padding: 2rem;
 
   &__top {
@@ -43,4 +42,8 @@
 
 .MuiModal-backdrop {
   background-color: white;
+}
+
+.MuiModal-root {
+  overflow: scroll;
 }

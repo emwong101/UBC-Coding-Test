@@ -1,5 +1,5 @@
 import { Modal } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./ItemCard.scss";
 
@@ -9,10 +9,10 @@ function ItemCard({ image, name, drink, drinkID }) {
   const ingredients = [];
   const measurements = [];
 
-  const pushInfo = (drink) => {
+  const pushInfo = (arr) => {
     for (let i = 1; i <= 15; i++) {
-      ingredients.push(drink[`strIngredient` + String(i)]);
-      measurements.push(drink[`strMeasure` + String(i)]);
+      ingredients.push(arr[`strIngredient` + String(i)]);
+      measurements.push(arr[`strMeasure` + String(i)]);
     }
   };
 
@@ -21,18 +21,22 @@ function ItemCard({ image, name, drink, drinkID }) {
       .get(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`
       )
-      .then((res) => setIndividualDrink(res.data.drinks[0]))
-      .then(pushInfo(individualDrink));
+      .then((res) => setIndividualDrink(res.data.drinks[0]));
   };
 
-  const handleOpen = () => {
-    drink ? pushInfo(drink) : getDrinkInfo(drinkID);
+  drink ? pushInfo(drink) : pushInfo(individualDrink);
+
+  const handleOpen = (e) => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    drink ? "" : getDrinkInfo(drinkID);
+  }, []);
 
   return (
     <div>
@@ -79,7 +83,7 @@ function ItemCard({ image, name, drink, drinkID }) {
                 {ingredients.map((ingredient, index) => {
                   if (ingredient !== null) {
                     return (
-                      <p key={ingredient}>
+                      <p key={index}>
                         {`${measurements[index] ? measurements[index] : ""}
                     ${ingredient}`}
                       </p>
