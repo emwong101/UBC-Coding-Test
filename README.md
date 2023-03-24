@@ -8,8 +8,18 @@ The Cocktail Bar is a responsive single page application displaying cocktails an
 ## Installation
 
 This application uses [node](https://nodejs.org/en) package manager. Please download code as a ZIP file or clone repo to begin. To install dependencies, please run the command below.
+
 ```bash
 npm install
+npm run dev
+```
+
+or
+
+```bash
+npm install
+npm run build
+npm run preview
 ```
 
 ## Tech Stack and Dependencies
