@@ -1,0 +1,18 @@
+@use "../../styles/breakpoints" as *;
+
+//set display to hidden on mobile and tablet breakpoints
+.button__menu {
+  display: none;
+}
+
+@include tablet {
+  .button__menu {
+    display: none;
+  }
+}
+
+@include desktop {
+  .button__menu {
+    display: block;
+  }
+}

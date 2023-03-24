@@ -1,0 +1,16 @@
+@use "../../styles/breakpoints" as *;
+
+.dropdown {
+  width: 100%;
+  text-align: center;
+}
+
+.MuiList-root {
+  height: 10rem;
+}
+
+@include desktop {
+  .dropdown__alphabet {
+    display: none;
+  }
+}

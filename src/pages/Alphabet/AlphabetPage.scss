@@ -1,0 +1,21 @@
+@use "../../styles/breakpoints" as *;
+
+.alphabet {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+  background-color: transparent;
+}
+
+@include desktop {
+  .alphabet__inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+  }
+}
