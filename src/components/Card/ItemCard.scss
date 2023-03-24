@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints" as *;
+
 .card {
   width: 10rem;
   height: fit-content;
@@ -46,4 +48,49 @@
 
 .MuiModal-root {
   overflow: scroll;
+}
+
+@include tablet {
+  .card {
+    margin: 1rem;
+  }
+  .modal {
+    background-color: #e0e1dd;
+    display: flex;
+    align-items: center;
+    max-width: 80%;
+    max-height: 80%;
+    margin: auto;
+    border-radius: 12px;
+
+    &__image {
+      height: fit-content;
+      width: fit-content;
+    }
+
+    &__text {
+      flex: 90%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    &__heading {
+      font-size: 1.5rem;
+    }
+
+    &__body {
+      font-size: 1.25rem;
+    }
+  }
+
+  .MuiModal-backdrop {
+    background-color: transparent;
+  }
+
+  .MuiModal-root {
+    display: flex;
+  }
 }

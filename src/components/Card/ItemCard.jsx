@@ -58,40 +58,42 @@ function ItemCard({ image, name, drink, drinkID }) {
           <div className="modal__top">
             <img src={image} alt={name} className="modal__image" />
           </div>
-          <div>
-            <h4>Name</h4>
-            <p>{name}</p>
+          <div className="modal__text">
+            <h4 className="modal__heading">Name</h4>
+            <p className="modal__body">{name}</p>
             {drink ? (
               <>
-                <h4>Ingredients</h4>
-                {ingredients.map((ingredient, index) => {
-                  if (ingredient !== null) {
-                    return (
-                      <p key={ingredient}>
-                        {`${measurements[index] ? measurements[index] : ""}
+                <h4 className="modal__heading">Ingredients</h4>
+                <ul>
+                  {ingredients.map((ingredient, index) => {
+                    if (ingredient !== null) {
+                      return (
+                        <li className="modal__body" key={ingredient}>
+                          {`${measurements[index] ? measurements[index] : ""}
                     ${ingredient}`}
-                      </p>
-                    );
-                  }
-                })}
-                <h4>Instructions</h4>
-                <p>{drink.strInstructions}</p>
+                        </li>
+                      );
+                    }
+                  })}
+                </ul>
+                <h4 className="modal__heading">Instructions</h4>
+                <p className="modal__body">{drink.strInstructions}</p>
               </>
             ) : (
               <>
-                <h4>Ingredients</h4>
+                <h4 className="modal__heading">Ingredients</h4>
                 {ingredients.map((ingredient, index) => {
                   if (ingredient !== null) {
                     return (
-                      <p key={index}>
+                      <p className="modal__body" key={index}>
                         {`${measurements[index] ? measurements[index] : ""}
                     ${ingredient}`}
                       </p>
                     );
                   }
                 })}
-                <h4>Instructions</h4>
-                <p>{individualDrink.strInstructions}</p>
+                <h4 className="modal__heading">Instructions</h4>
+                <p className="modal__body">{individualDrink.strInstructions}</p>
               </>
             )}
           </div>

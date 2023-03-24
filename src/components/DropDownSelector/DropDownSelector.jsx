@@ -3,13 +3,19 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "./DropDownSelector.scss";
 
-function DropDownSelector({ handleChange, optionArray, selection, id }) {
+function DropDownSelector({
+  handleChange,
+  optionArray,
+  selection,
+  id,
+  classes,
+}) {
   return (
     <div>
       <Select
         value={selection ? selection : ""}
         onChange={handleChange}
-        className="dropdown"
+        className={classes}
         labelId={id}
       >
         {optionArray.map((option) => {

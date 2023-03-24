@@ -33,17 +33,22 @@ function AlphabetPage({ setData, data, selection, setSelection }) {
 
   return (
     <div className="alphabet">
+      <InputLabel id="alphabet__dropdown">
+        Select a letter to get started
+      </InputLabel>
       <div className="alphabet__inputs">
-        <InputLabel id="alphabet__dropdown">
-          Select a letter to get started
-        </InputLabel>
         <DropDownSelector
           id="alphabet__dropdown"
           handleChange={getAlphabet}
           optionArray={alphabet}
           selection={selection}
+          classes="dropdown dropdown__alphabet"
         ></DropDownSelector>
-        <ButtonMenu optionArray={alphabet} />
+        <ButtonMenu
+          handleChange={getAlphabet}
+          optionArray={alphabet}
+          selection={selection}
+        />
       </div>
       <div className="card__container">
         {data

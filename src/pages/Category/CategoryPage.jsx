@@ -4,6 +4,7 @@ import DropDownSelector from "../../components/DropDownSelector/DropDownSelector
 import ItemCard from "../../components/Card/ItemCard";
 import { InputLabel } from "@mui/material";
 import "./CategoryPage.scss";
+import ButtonMenu from "../../components/ButtonGroup/ButtonMenu";
 
 function CategoryPage({ data, setData, selection, setSelection }) {
   const categoryOptions = [
@@ -35,15 +36,17 @@ function CategoryPage({ data, setData, selection, setSelection }) {
 
   return (
     <div className="category">
+      {" "}
+      <InputLabel id="category__dropdown">
+        Select a category to get started
+      </InputLabel>
       <div className="category__inputs">
-        <InputLabel id="category__dropdown">
-          Select a category to get started
-        </InputLabel>
         <DropDownSelector
           handleChange={getCategory}
           optionArray={categoryOptions}
           selection={selection}
           id="category__dropdown"
+          classes="dropdown dropdown__category"
         ></DropDownSelector>
       </div>
       <div className="card__container">
