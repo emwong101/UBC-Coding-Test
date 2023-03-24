@@ -4,7 +4,6 @@ import { StyledEngineProvider } from "@mui/material";
 import AlphabetPage from "./pages/Alphabet/AlphabetPage";
 import CategoryPage from "./pages/Category/CategoryPage";
 import Nav from "./components/Nav/Nav";
-
 import "./App.scss";
 import Default from "./pages/Default/Default";
 
