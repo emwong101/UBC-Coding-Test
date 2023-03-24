@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
 import { InputLabel } from "@mui/material";
 import "./CategoryPage.scss";
-import ButtonMenu from "../../components/ButtonGroup/ButtonMenu";
 
 function CategoryPage({ data, setData, selection, setSelection }) {
+  //available categories given by API
   const categoryOptions = [
     "Ordinary Drink",
     "Cocktail",
@@ -21,6 +21,7 @@ function CategoryPage({ data, setData, selection, setSelection }) {
     "Soft Drink",
   ];
 
+  // get request based on category, spaces in category names replaced with _
   const getCategory = (e) => {
     setSelection(e.target.value);
     const categoryRequest = e.target.value;

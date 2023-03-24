@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import DropDownSelector from "../../components/DropDownSelector/DropDownSelector";
 import ItemCard from "../../components/Card/ItemCard";
@@ -7,9 +7,10 @@ import "./AlphabetPage.scss";
 import ButtonMenu from "../../components/ButtonGroup/ButtonMenu";
 
 function AlphabetPage({ setData, data, selection, setSelection }) {
+  //split string for input options
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  const [windowSize, setWindowSize] = useState();
 
+  // set dropdown value to match selection, get request for first letter of drink
   const getAlphabet = (e) => {
     setSelection(e.target.value);
     axios
@@ -18,18 +19,6 @@ function AlphabetPage({ setData, data, selection, setSelection }) {
       )
       .then((res) => setData(res.data.drinks));
   };
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
   return (
     <div className="alphabet">

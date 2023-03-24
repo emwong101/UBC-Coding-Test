@@ -10,6 +10,7 @@ function DropDownSelector({
   id,
   classes,
 }) {
+  //map through optionsArray prop passed from pages
   return (
     <div>
       <Select

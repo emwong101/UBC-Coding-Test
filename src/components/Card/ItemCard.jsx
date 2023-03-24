@@ -4,11 +4,17 @@ import axios from "axios";
 import "./ItemCard.scss";
 
 function ItemCard({ image, name, drink, drinkID }) {
+  //state for modal open and close
   const [open, setOpen] = useState(false);
+
+  //state for drink based on ID fetch request
   const [individualDrink, setIndividualDrink] = useState({});
+
+  //empty arrays for ingredients and measurements
   const ingredients = [];
   const measurements = [];
 
+  // loop through object and push ingredients + measurements
   const pushInfo = (arr) => {
     for (let i = 1; i <= 15; i++) {
       ingredients.push(arr[`strIngredient` + String(i)]);
@@ -16,6 +22,7 @@ function ItemCard({ image, name, drink, drinkID }) {
     }
   };
 
+  // get request for category drinks
   const getDrinkInfo = async (drinkID) => {
     await axios
       .get(
@@ -24,9 +31,11 @@ function ItemCard({ image, name, drink, drinkID }) {
       .then((res) => setIndividualDrink(res.data.drinks[0]));
   };
 
+  // check if drink prop exists
   drink ? pushInfo(drink) : pushInfo(individualDrink);
 
-  const handleOpen = (e) => {
+  // functions for open and close modal
+  const handleOpen = () => {
     setOpen(true);
   };
 
@@ -34,12 +43,13 @@ function ItemCard({ image, name, drink, drinkID }) {
     setOpen(false);
   };
 
+  // check if drink prop exists, if not, run get request
   useEffect(() => {
     drink ? "" : getDrinkInfo(drinkID);
   }, []);
 
   return (
-    <div>
+    <>
       <div className="card" onClick={handleOpen}>
         <div className="card__image">
           <img src={image} alt={name} />
@@ -99,7 +109,7 @@ function ItemCard({ image, name, drink, drinkID }) {
           </div>
         </>
       </Modal>
-    </div>
+    </>
   );
 }
 

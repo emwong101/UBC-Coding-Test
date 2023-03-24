@@ -9,8 +9,11 @@ import "./App.scss";
 import Default from "./pages/Default/Default";
 
 function App() {
+  // data state to store API response objects
   const [data, setData] = useState();
   const [selection, setSelection] = useState();
+
+  //location hook for determining active nav link
   let location = useLocation();
 
   return (
